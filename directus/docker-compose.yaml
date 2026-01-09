@@ -2,6 +2,8 @@ name: directus-cms-template
 services:
   database:
     image: postgis/postgis:13-master
+    ports:
+      - 5432:5432
     platform: linux/amd64
     volumes:
       - ./data/database:/var/lib/postgresql/data
@@ -54,6 +56,9 @@ services:
       CACHE_STORE: 'redis'
       REDIS: 'redis://cache:6379'
 
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      
       WEBSOCKETS_ENABLED: ${WEBSOCKETS_ENABLED}
 
       PUBLIC_URL: ${PUBLIC_URL}
