@@ -1,0 +1,35 @@
+###
+
+@hostname = app-mejd.horbo.id:8055
+@directusUserToken = UaTM1wd2Hpp7ho0SlU-azDaxoYjNcq0r
+
+###
+
+
+###
+
+GET /items/global
+Host: {{hostname}}
+Authorization: Bearer {{directusUserToken}}
+
+###
+
+GET /collections
+Host: {{hostname}}
+Authorization: Bearer {{directusUserToken}}
+
+###
+
+GET /users
+Host: {{hostname}}
+Authorization: Bearer {{directusUserToken}}
+
+###
+
+
+GET /collections
+Host: {{hostname}}
+Authorization: Bearer {{directusUserToken}}
+
+###
+
