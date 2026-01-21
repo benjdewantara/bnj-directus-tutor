@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<!doctype html>
+<html>
 <body>
+<script type="module">
+    import { createDirectus, staticToken, rest, readItems } from 'https://www.unpkg.com/@directus/sdk/dist/index.js';
 
-<p>Hell on earth</p>
+    const directus = createDirectus('http://app-rdrr.horbo.id:3000')
+        .with(staticToken('TqgMujEmExeL173PXK2kn2-Nyd7vLYYY'))
+        .with(rest());
 
+    await directus.request(readItems('global'));
+</script>
 </body>
 </html>
