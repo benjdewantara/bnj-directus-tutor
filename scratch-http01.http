@@ -1,7 +1,9 @@
 ###
 
-@hostname = app-mejd.horbo.id:8055
+@hostname = app-kufj.horbo.id:8055
 @directusUserToken = UaTM1wd2Hpp7ho0SlU-azDaxoYjNcq0r
+
+@cookie_directus_session_token = directus_session_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc3MWRiMTVlLWVkM2ItNGUwYy1iNjBlLWU4NTg2Y2VhNGM5MyIsInJvbGUiOiIzNzBjOTc4Yy05MWQyLTRiZjMtYmJiMS1kNzJjMzcyNTAzNDQiLCJhcHBfYWNjZXNzIjp0cnVlLCJhZG1pbl9hY2Nlc3MiOnRydWUsInNlc3Npb24iOiJCR0dLN0tQM3BkcEdNVnF2SlBpa3VPeExNWktHSXNHTDdqU2FwRVJlcnZESVFXRFk1WmhfTXdJbGI4RjBKbnhRIiwiaWF0IjoxNzY5MDA0MDQxLCJleHAiOjE3NjkwOTA0NDEsImlzcyI6ImRpcmVjdHVzIn0.FJ6TNm5xuVI4WJx-7MbgRb1eySiVRbt_Xs_bOrMtoOs
 
 ###
 
@@ -33,3 +35,12 @@ Authorization: Bearer {{directusUserToken}}
 
 ###
 
+PATCH /users/771db15e-ed3b-4e0c-b60e-e8586cea4c93
+Host: {{hostname}}
+Cookie: {{cookie_directus_session_token}}
+
+{
+  "token": "HH3u26nBoQui6mFU6WCCuQ5zsjQqoks8"
+}
+
+###
