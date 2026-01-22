@@ -1,6 +1,6 @@
 ###
 
-@hostname = app-rnyp.horbo.id:8055
+@hostname = app-xwpa.horbo.id:8055
 
 @directusUserToken = UaTM1wd2Hpp7ho0SlU-azDaxoYjNcq0r
 
@@ -154,7 +154,7 @@ Content-Type: application/json
                 ],
                 "interface": "select-dropdown-m2o",
                 "options": {
-                    "template": "{{avatar}} {{first_name}} {{last_name}}"
+                    "template": "\{\{avatar\}\} \{\{first_name\}\} \{\{last_name\}\}"
                 },
                 "display": "user",
                 "readonly": true,
@@ -190,7 +190,7 @@ Content-Type: application/json
                 ],
                 "interface": "select-dropdown-m2o",
                 "options": {
-                    "template": "{{avatar}} {{first_name}} {{last_name}}"
+                    "template": "\{\{avatar\}\} \{\{first_name\}\} \{\{last_name\}\}"
                 },
                 "display": "user",
                 "readonly": true,
@@ -258,7 +258,72 @@ Content-Type: application/json
 
 ###
 
+POST /policies HTTP/1.1
+Host: {{hostname}}
+Authorization: Bearer {{directusUserToken}}
+Content-Type: application/json
 
+{
+    "name": "Test Policy",
+    "admin_access": true,
+    "app_access": true
+}
+
+###
+
+GET /policies?limit=-1&fields[]=id&fields[]=name&fields[]=icon&fields[]=description&fields[]=admin_access&fields[]=users&fields[]=roles&deep[users][_aggregate][count]=user&deep[users][_groupBy][0]=policy&deep[users][_sort]=policy&deep[users][_limit]=-1&deep[roles][_aggregate][count]=role&deep[roles][_groupBy][0]=policy&deep[roles][_sort]=policy&deep[roles][_limit]=-1&sort=name HTTP/1.1
+Host: {{hostname}}
+Authorization: Bearer {{directusUserToken}}
+Content-Type: application/json
+
+###
+
+GET /policies?limit=-1&fields[]=id&fields[]=name&fields[]=icon&fields[]=description&fields[]=admin_access&fields[]=users&fields[]=roles&deep[users][_aggregate][count]=user&deep[users][_groupBy][0]=policy&deep[users][_sort]=policy&deep[users][_limit]=-1&deep[roles][_aggregate][count]=role&deep[roles][_groupBy][0]=policy&deep[roles][_sort]=policy&deep[roles][_limit]=-1&sort=name HTTP/1.1
+Host: {{hostname}}
+Authorization: Bearer {{directusUserToken}}
+Content-Type: application/json
+
+###
+
+POST /users HTTP/1.1
+Host: {{hostname}}
+Authorization: Bearer {{directusUserToken}}
+Content-Type: application/json
+
+{
+    "first_name": "frontend",
+    "last_name": "public",
+    "token": "KHRyZEINmtYKBIwqmxfHhOUD1TyAQAI9",
+    "policies": {
+        "create": [
+            {
+                "user": "+",
+                "policy": {
+                    "id": "abf8a154-5b1c-4a46-ac9c-7300570f4f17"
+                }
+            }
+        ],
+        "update": [],
+        "delete": []
+    }
+}
+
+###
+
+
+###
+
+###
+
+###
+
+###
+
+###
+
+###
+
+###
 
 ###
 
