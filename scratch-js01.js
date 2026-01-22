@@ -1,6 +1,6 @@
 // make admin user have a fixed access token
 
-let hostname = `app-xwpa.horbo.id`;
+let hostname = `app-ezmq.horbo.id`;
 let uri = `http://${hostname}:8055`;
 let accessTokenAdmin = `UaTM1wd2Hpp7ho0SlU-azDaxoYjNcq0r`;
 
@@ -160,6 +160,16 @@ async function createCollectionWebBrowser() {
           },
           schema: {},
         },
+        {
+          field: 'brand',
+          type: 'string',
+          meta: {
+            interface: 'input',
+            special: null,
+            required: true,
+          },
+          schema: {},
+        },
       ],
       schema: {},
       meta: {
@@ -174,7 +184,7 @@ async function createCollectionWebBrowser() {
   });
 }
 
-async function createRelationWebBrowserAndUserCreated() {
+async function createRelationsWebBrowser() {
   await fetch(`${uri}/relations`, {
     headers: {
       'Content-Type': 'application/json',
@@ -187,9 +197,7 @@ async function createRelationWebBrowserAndUserCreated() {
     }),
     method: 'POST',
   });
-}
 
-async function createRelationWebBrowserAndUserUpdated() {
   await fetch(`${uri}/relations`, {
     headers: {
       'Content-Type': 'application/json',
@@ -223,7 +231,6 @@ async function createFieldsWebBrowser() {
 }
 
 await createCollectionWebBrowser();
-await createRelationWebBrowserAndUserCreated();
-await createRelationWebBrowserAndUserUpdated();
-await createFieldsWebBrowser();
+await createRelationsWebBrowser();
+// await createFieldsWebBrowser();
 console.log(`Created collection web_browser with relations and fields.`);
