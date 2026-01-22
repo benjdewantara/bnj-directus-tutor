@@ -1,8 +1,8 @@
-// make admin user have a fixed access token
+// create collection `web_browser`
 
-let hostname = `app-ezmq.horbo.id`;
-let uri = `http://${hostname}:8055`;
-let accessTokenAdmin = `UaTM1wd2Hpp7ho0SlU-azDaxoYjNcq0r`;
+hostname = `app-ezmq.horbo.id`;
+uri = `http://${hostname}:8055`;
+accessTokenAdmin = `UaTM1wd2Hpp7ho0SlU-azDaxoYjNcq0r`;
 
 async function createCollectionWebBrowser() {
   await fetch(`${uri}/collections`, {
