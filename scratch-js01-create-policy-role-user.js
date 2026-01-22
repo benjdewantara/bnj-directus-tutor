@@ -8,6 +8,7 @@ async function createPolicy() {
   await fetch(`${uri}/policies`, {
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessTokenAdmin}`,
     },
     body: JSON.stringify({
       name: 'Public User Policy',
@@ -22,6 +23,7 @@ async function createRole() {
   await fetch(`${uri}/roles`, {
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessTokenAdmin}`,
     },
     body: JSON.stringify({
       name: 'Public Role',
@@ -41,6 +43,7 @@ async function deleteAssignmentPolicyWithRole(roleGuid) {
   await fetch(`http://app-ezmq.horbo.id:8055/roles/${roleGuid}`, {
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessTokenAdmin}`,
     },
     body: JSON.stringify({
       policies: {
@@ -61,6 +64,7 @@ async function createAssignmentPolicyWithRole(roleGuid) {
   await fetch(`http://app-ezmq.horbo.id:8055/roles/${roleGuid}`, {
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessTokenAdmin}`,
     },
     body: JSON.stringify({
       policies: {
