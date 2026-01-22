@@ -12,6 +12,18 @@
 
 ###
 
+POST /auth/login
+Host: {{hostname}}
+Content-Type: application/json
+# Authorization: Bearer {{directusUserToken}}
+
+{
+    "email": "admin@example.com",
+    "password": "admin1234"
+}
+
+###
+
 GET /items/global
 Host: {{hostname}}
 Authorization: Bearer {{directusUserToken}}
