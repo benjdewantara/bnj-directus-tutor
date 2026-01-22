@@ -1,6 +1,6 @@
 // make admin user have a fixed access token
 
-let hostname = `app-rnyp.horbo.id`;
+let hostname = `app-xwpa.horbo.id`;
 let uri = `http://${hostname}:8055`;
 let accessTokenAdmin = `UaTM1wd2Hpp7ho0SlU-azDaxoYjNcq0r`;
 
@@ -61,19 +61,9 @@ async function createCollectionWebBrowser() {
             options: {
               choices: [
                 {
-                  text: '$t:published',
-                  value: 'published',
+                  text: '$t:CREATED',
+                  value: 'CREATED',
                   color: 'var(--theme--primary)',
-                },
-                {
-                  text: '$t:draft',
-                  value: 'draft',
-                  color: 'var(--theme--foreground)',
-                },
-                {
-                  text: '$t:archived',
-                  value: 'archived',
-                  color: 'var(--theme--warning)',
                 },
               ],
             },
@@ -83,25 +73,11 @@ async function createCollectionWebBrowser() {
               showAsDot: true,
               choices: [
                 {
-                  text: '$t:published',
-                  value: 'published',
+                  text: '$t:CREATED',
+                  value: 'CREATED',
                   color: 'var(--theme--primary)',
                   foreground: 'var(--theme--primary)',
                   background: 'var(--theme--primary-background)',
-                },
-                {
-                  text: '$t:draft',
-                  value: 'draft',
-                  color: 'var(--theme--foreground)',
-                  foreground: 'var(--theme--foreground)',
-                  background: 'var(--theme--background-normal)',
-                },
-                {
-                  text: '$t:archived',
-                  value: 'archived',
-                  color: 'var(--theme--warning)',
-                  foreground: 'var(--theme--warning)',
-                  background: 'var(--theme--warning-background)',
                 },
               ],
             },
@@ -228,7 +204,7 @@ async function createRelationWebBrowserAndUserUpdated() {
   });
 }
 
-async function createFields() {
+async function createFieldsWebBrowser() {
   await fetch(`${uri}/fields/web_browser`, {
     headers: {
       'Content-Type': 'application/json',
@@ -245,3 +221,9 @@ async function createFields() {
     method: 'POST',
   });
 }
+
+await createCollectionWebBrowser();
+await createRelationWebBrowserAndUserCreated();
+await createRelationWebBrowserAndUserUpdated();
+await createFieldsWebBrowser();
+console.log(`Created collection web_browser with relations and fields.`);
