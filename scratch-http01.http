@@ -1,6 +1,6 @@
 ###
 
-@hostname = app-xkum.horbo.id:8055
+@hostname = app-svis.horbo.id:8055
 
 @directusUserToken = UaTM1wd2Hpp7ho0SlU-azDaxoYjNcq0r
 

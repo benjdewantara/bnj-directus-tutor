@@ -1,23 +1,24 @@
-import {
-    createDirectus,
-    readItem,
-    readItems,
-    rest,
-    staticToken,
-    withToken,
-} from '@directus/sdk';
+import {createDirectus, readCollections, readItems, rest, staticToken,} from '@directus/sdk';
+import * as process from "node:process";
+
+const uri = process.env['URI_DIRECTUS_BACKEND']!;
+const tokenStatic = process.env['TOKEN_STATIC_ADMIN']!;
 
 const directus =
-    createDirectus("http://app-xkum.horbo.id:8055")
-        .with(staticToken(`UaTM1wd2Hpp7ho0SlU-azDaxoYjNcq0r`))
+    createDirectus(uri)
+        .with(staticToken(tokenStatic))
         .with(rest());
 
 const result =
     await directus.request(
         readItems(
-            "web_browser",
+            'web_browser',
             {}
-        )
+        ),
     );
+
+let collections = await directus.request(
+    readCollections()
+);
 
 let a23 = 23;
