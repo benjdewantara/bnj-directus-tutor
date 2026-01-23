@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@directus/sdk": "^21.0.0",
+    "directus": "^11.14.1"
+  },
+  "devDependencies": {
+    "@directus/types": "^14.0.0",
+    "typescript": "^5.9.3"
+  }
+}
