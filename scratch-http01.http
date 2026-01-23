@@ -1,14 +1,12 @@
 ###
 
-@hostname = app-ezmq.horbo.id:8055
+@hostname = app-xkum.horbo.id:8055
 
 @directusUserToken = UaTM1wd2Hpp7ho0SlU-azDaxoYjNcq0r
 
 @cookie_directus_session_token = directus_session_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3ODlkNTVlLTYyNTEtNDkyOS04Y2ZmLTEwMTgyNTI2NWUxYSIsInJvbGUiOiJiODc1M2E4Ni0yYTE0LTQwMzktYmQ3Zi05ZmU0ZDY3M2Q5MWEiLCJhcHBfYWNjZXNzIjp0cnVlLCJhZG1pbl9hY2Nlc3MiOnRydWUsInNlc3Npb24iOiJZWGhfbjF3QV95bjhVaDlOSDFOeDlFNnlBUzZjbzBrc0VRNGxmbFF3WUNub1RNVDVKSXJuUkJWVTRMOVJTY2Q4IiwiaWF0IjoxNzY5MDUwODI1LCJleHAiOjE3NjkxMzcyMjUsImlzcyI6ImRpcmVjdHVzIn0._Eh95dY9jH7vH-8lOupC0fdBjXc-X2Y9e-3zUHC8TMQ
 
-
 ###
-
 
 ###
 
@@ -51,7 +49,7 @@ Authorization: Bearer {{directusUserToken}}
 
 GET /users/me?fields=id
 Host: {{hostname}}
-Cookie: {{cookie_directus_session_token}}
+Authorization: Bearer {{directusUserToken}}
 
 ###
 
