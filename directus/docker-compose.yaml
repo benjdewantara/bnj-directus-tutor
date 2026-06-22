@@ -1,6 +1,7 @@
 name: directus-cms-template
 services:
   database:
+    restart: always
     image: postgis/postgis:13-master
     ports:
       - 5432:5432
@@ -20,6 +21,7 @@ services:
       start_period: 30s
 
   cache:
+    restart: always
     image: redis:6
     healthcheck:
       test: ['CMD-SHELL', "[ $$(redis-cli ping) = 'PONG' ]"]
@@ -30,6 +32,7 @@ services:
       start_period: 30s
 
   directus:
+    restart: always
     image: directus/directus:11.14.0
     ports:
       - ${DIRECTUS_PORT}:8055
