@@ -2,8 +2,8 @@ name: directus-cms-template
 services:
   database:
     restart: always
-    image: postgres/postgres:18.4-trixie
-    # image: postgis/postgis:13-master
+    # image: postgres/postgres:18.4-trixie
+    image: postgis/postgis:13-master
     ports:
       - 5432:5432
     platform: linux/amd64
